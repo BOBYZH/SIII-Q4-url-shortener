@@ -1,0 +1,61 @@
+<div class="container text-center">
+  <form action="/" method="POST">
+    <div class="form-group text-center">
+      <a href="/" class="text-decoration-none">
+        <h1 for="Url" class="col-12 my-5 text-dark">
+          URL Shortener
+        </h1>
+        <img src="https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_960_720.png" alt="url link illustration"
+          class="w-25 mb-5">
+      </a>
+      <div class="container row mt-5">
+      {{!-- 顯示短網址 --}}
+      {{#if url}}
+        <div class="col-12 my-4 mx-auto">
+          <h2>Success! Please use this link:</h2>
+          <a class="h3" target="_blank" rel="noopener noreferrer" href="{{websiteUrl}}/{{url.shortPath}}">
+            {{!-- 包input讓JS能選取網址 --}}
+            <input type="text" id="shortenedUrl" class="border-0 text-primary" value="{{websiteUrl}}/{{url.shortPath}}" style="cursor: pointer;">
+          </a>
+        </div>        
+        <button class="btn-primary col-2 mx-auto py-2" type="button" onclick="copyText()">Copy</button>
+      {{!-- 初始首頁 --}}
+      {{else}}
+        {{#if errors}}
+        <div class="col-12">
+          <h3>{{error}}</h3>
+        </div>
+        {{/if}}
+        {{!-- 設為required以免送出空白網址 --}}
+        <input type="url" class="form-control col-8 my-4 mx-auto bg-light" id="originalUrl" placeholder="Input URL here" name="url" value="{{originalUrl}}" onblur="checkURL(this)" required>
+        <button type="submit" class="btn btn-outline-primary col-5 mx-auto py-2">Shorten</button>
+      {{/if}}
+      </div>
+    </div>
+  </form>
+</div>
+
+{{!-- 沒輸入通訊協定時，自動補上預設的http以符合URL格式 --}}
+<script>
+  /* Adapted from first answer:
+  https://stackoverflow.com/questions/17946960/with-html5-url-input-validation-assume-url-starts-with-http
+  */
+  function checkURL (url) {
+    let string = url.value
+    if (!~string.indexOf("://")) {
+      string = "http://" + string // Readd default protocol prefix
+    }
+    url.value = string
+    return url
+  }
+</script>
+{{!-- 複製縮短後的網址 --}}
+<script>
+  function copyText() {
+    let copyText = document.querySelector("#shortenedUrl")
+    copyText.select()
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy")
+    alert("This shortened url has been copied to clipboard!")
+  }
+</script>
