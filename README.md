@@ -35,9 +35,9 @@ npm run seeder
 
 | originalUrl                      | shortPath |
 | ---------------------------------| ----------|
-| https://tw.yahoo.com/            | g5Wr5     |
-| https://www.google.com/          | 41B1T     |
-| https://lighthouse.alphacamp.co/ | f88RR     |
+| https://tw.yahoo.com/            | [g5Wr5](https://url-shortener-practice.herokuapp.com/g5Wr5)     |
+| https://www.google.com/          | [41B1T](https://url-shortener-practice.herokuapp.com/41B1T)     |
+| https://lighthouse.alphacamp.co/ | [f88RR](https://url-shortener-practice.herokuapp.com/f88RR)     |
 6. 在本專案根目錄依據".envTemplate"內容格式，新增".env"檔案(可使用終端機指令)，
 ```
 cp .envTemplate .env
