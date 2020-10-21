@@ -2,9 +2,9 @@
 
 ## Alpha Camp 學期三(2019年版) Final Exam A29: 「專業知識與技術」題目
 ### Q4: 短網址產生器 - Mongoose
-- 免安裝預覽連結：[https://url-shortener-practice.herokuapp.com/](https://url-shortener-practice.herokuapp.com/)
-
-(因heroku服務免費版限制，開啟網站時需待主機從休眠狀態恢復，須稍待片刻)
+- 免安裝預覽連結(為便於示範，皆連到相同的[MongoDB Atlas](https://www.mongodb.com/cloud/atlas)資料庫)：
+  - Heroku版本[https://url-shortener-practice.herokuapp.com](https://url-shortener-practice.herokuapp.com/)(因免費版服務限制，開啟網站時需待主機從休眠狀態恢復，須稍待片刻)
+  - GCP版本[https://url-shortener-293209.df.r.appspot.com](https://url-shortener-293209.df.r.appspot.com/)(因Google此服務有免費使用期限，未來視情況關閉，雖開啟速度較快)
 
 ## 開發者：
 Bob Yu-Zhen Huang[(BOBYZH)](https://github.com/BOBYZH)
@@ -31,13 +31,13 @@ npm i
 ```
 npm run seeder
 ```
-以下為測試用的原始網址與短網址代碼：
+以下為測試用的原始網址與短網址代碼(以Heroku為例)：
 
 | originalUrl                      | shortPath |
 | ---------------------------------| ----------|
-| https://tw.yahoo.com/            | [g5Wr5](https://url-shortener-practice.herokuapp.com/g5Wr5)     |
-| https://www.google.com/          | [41B1T](https://url-shortener-practice.herokuapp.com/41B1T)     |
-| https://lighthouse.alphacamp.co/ | [f88RR](https://url-shortener-practice.herokuapp.com/f88RR)     |
+| https://tw.yahoo.com/            | [KLAmb](https://url-shortener-practice.herokuapp.com/KLAmb)     |
+| https://www.google.com/          | [gTCJc](https://url-shortener-practice.herokuapp.com/gTCJc)     |
+| https://www.msn.com/zh-tw/       | [c1LMV](https://url-shortener-practice.herokuapp.com/c1LMV)     |
 6. 在本專案根目錄依據".envTemplate"內容格式，新增".env"檔案(可使用終端機指令)，
 ```
 cp .envTemplate .env
@@ -60,3 +60,6 @@ npm run dev
     - 建立短網址時，會檢查是否生成過同樣的代碼，以免代碼重複時導向出現錯誤
 - 在伺服器啟動期間，使用者可以在瀏覽器的網址列，輸入你提供的短網址，瀏覽器就會導向原本的網站
 - 使用者可以按 Copy 來複製縮短後的網址
+
+## 更新歷程：
+- 2020.10.21：配合練習[Google雲端平台(GCP)](https://cloud.google.com/)佈署，以及原先[Heroku搭配的mLab即將停止服務](https://docs.mlab.com/shutdown-of-heroku-add-on/)，改直接使用MongoDB Atlas雲端資料庫服務
